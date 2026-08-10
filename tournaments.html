@@ -5,31 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL | Турниры</title>
     <style>
-        /* Те же базовые стили, что и на главной */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
         body { background-color: #050505; color: #ffffff; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 50px; background: rgba(5, 5, 5, 0.9); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
         .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: #fff; text-decoration: none; }
         .logo span { color: #d4af37; }
-        nav { display: flex; gap: 30px; }
-        nav a { color: #888; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; transition: 0.3s; }
+        nav { display: flex; gap: 25px; }
+        nav a { color: #888; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; transition: 0.3s; white-space: nowrap; }
         nav a:hover, nav a.active { color: #fff; }
 
-        /* Стили карда турнира */
-        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-        .page-title { font-size: 36px; text-transform: uppercase; margin-bottom: 40px; text-align: center; letter-spacing: 2px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .page-title { font-size: 28px; text-transform: uppercase; margin-bottom: 30px; text-align: center; letter-spacing: 2px; }
         
-        .fight-card { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); padding: 30px; margin-bottom: 20px; text-align: center; }
-        .event-name { font-size: 24px; color: #d4af37; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; }
-        .event-date { font-size: 12px; color: #888; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase; }
+        .fight-card { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.08); padding: 25px; margin-bottom: 20px; text-align: center; border-radius: 4px; }
+        .event-name { font-size: 22px; color: #d4af37; margin-bottom: 8px; font-weight: bold; text-transform: uppercase; }
+        .event-date { font-size: 11px; color: #888; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }
         
-        .matchup { display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .matchup { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .matchup:last-child { border-bottom: none; }
-        .fighter-name { font-size: 18px; font-weight: bold; flex: 1; text-transform: uppercase; }
+        .fighter-name { font-size: 15px; font-weight: bold; flex: 1; text-transform: uppercase; word-wrap: break-word; }
         .fighter-left { text-align: right; }
         .fighter-right { text-align: left; }
-        .vs { font-size: 14px; color: #d4af37; font-weight: bold; letter-spacing: 2px; }
-        .main-event .fighter-name { font-size: 24px; color: #fff; }
+        .vs { font-size: 12px; color: #d4af37; font-weight: bold; letter-spacing: 1px; flex-shrink: 0; padding: 0 10px; }
+        .main-event .fighter-name { font-size: 18px; color: #fff; }
+
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 20px; text-align: center; }
+            nav { width: 100%; justify-content: center; overflow-x: auto; padding-bottom: 5px; }
+            .container { padding: 0 15px; margin: 20px auto; }
+            .fight-card { padding: 15px; }
+            .matchup { flex-direction: row; font-size: 13px; }
+            .fighter-name { font-size: 13px; }
+            .main-event .fighter-name { font-size: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -47,26 +57,24 @@
         <h1 class="page-title">Ближайшие турниры</h1>
 
         <div class="fight-card">
-            <div class="event-name">NFL 3</div>
-            <div class="event-date">10 Августа 2026 | Главный кард</div>
+            <div class="event-name">NFL 1: Начало</div>
+            <div class="event-date">25 Августа 2026 | Главный кард</div>
             
-            <!-- ГЛАВНЫЙ БОЙ -->
             <div class="matchup main-event">
-                <div class="fighter-name fighter-left">.</div>
+                <div class="fighter-name fighter-left">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Том Аспиналл</div>
                 <div class="vs">VS</div>
-                <div class="fighter-name fighter-right">.</div>
+                <div class="fighter-name fighter-right">🇳🇱 Алистар Оверим</div>
             </div>
             
-            <!-- ОСТАЛЬНЫЕ БОИ -->
             <div class="matchup">
-                <div class="fighter-name fighter-left">.</div>
+                <div class="fighter-name fighter-left">🇷🇺 Ислам Махачев</div>
                 <div class="vs">VS</div>
-                <div class="fighter-name fighter-right">.</div>
+                <div class="fighter-name fighter-right">🇦🇪 Хамзат Чимаев</div>
             </div>
             <div class="matchup">
-                <div class="fighter-name fighter-left">.</div>
+                <div class="fighter-name fighter-left">🇺🇸 Нейт Диаз</div>
                 <div class="vs">VS</div>
-                <div class="fighter-name fighter-right">.</div>
+                <div class="fighter-name fighter-right">🇺🇸 Хорхе Масвидаль</div>
             </div>
         </div>
     </div>

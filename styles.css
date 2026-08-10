@@ -1,250 +1,195 @@
-/* ==========================================
-   ОБЩИЕ СТИЛИ И СБРОС (RESET)
-   ========================================== */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-    -webkit-tap-highlight-color: transparent; 
-}
-
-html, body { 
-    background-color: #050505; 
-    color: #ffffff; 
-    overflow-x: hidden; 
-}
-
-/* ==========================================
-   ШАПКА И НАВИГАЦИЯ (HEADER & NAV)
-   ========================================== */
-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 50px; 
-    background: rgba(5, 5, 5, 0.95); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    backdrop-filter: blur(10px); 
-}
-
-.logo { 
-    font-size: 28px; 
-    font-weight: 900; 
-    letter-spacing: 2px; 
-    color: #fff; 
-    text-decoration: none; 
-}
-
-.logo span { 
-    color: #d4af37; 
-}
-
-nav ul { 
-    display: flex; 
-    gap: 10px; 
-    list-style: none; 
+/* Основные стили */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-nav li {
-    list-style: none;
+body {
+    background-color: #0b0b0b;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
 }
 
-nav a { 
-    color: #888; 
-    text-decoration: none; 
-    font-size: 11px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    font-weight: bold; 
-    transition: 0.3s; 
-    white-space: nowrap; 
-    padding: 10px 16px; 
-    border-radius: 4px;
-    display: inline-block;
+/* Шапка сайта */
+header {
+    background: #121212;
+    border-bottom: 1px solid #222;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav a:hover, 
-nav a.active { 
-    color: #fff; 
-    background: rgba(255, 255, 255, 0.08); 
-}
-
-/* ==========================================
-   КОНТЕЙНЕРЫ
-   ========================================== */
-.container { 
-    max-width: 850px; 
-    margin: 40px auto; 
-    padding: 0 20px; 
-    min-height: calc(100vh - 200px); 
-}
-
-.page-title { 
-    font-size: 32px; 
-    text-transform: uppercase; 
-    margin-bottom: 30px; 
-    text-align: center; 
-    letter-spacing: 3px; 
+.logo {
+    font-size: 24px;
     font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
-.section-label { 
-    font-size: 11px; 
-    color: #d4af37; 
-    letter-spacing: 3px; 
-    text-transform: uppercase; 
-    margin-bottom: 8px; 
-    display: block; 
-    text-align: center;
+.logo span {
+    color: #d4af37;
 }
 
-/* ==========================================
-   СТИЛЬНЫЙ СТОЛБЕЦ/СПИСОК РЕЙТИНГОВ (P4P & DIVISIONS)
-   ========================================== */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #d4af37;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-label {
+    display: block;
+    color: #d4af37;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Карточки дивизионов и списки */
+.division-header {
+    font-size: 20px;
+    font-weight: 800;
+    color: #d4af37;
+    margin: 35px 0 15px 0;
+    text-transform: uppercase;
+    border-left: 3px solid #d4af37;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
 .rankings-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 40px;
+    gap: 8px;
 }
 
 .fighter-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    padding: 12px 20px;
-    transition: 0.2s ease-in-out;
+    justify-content: space-between;
+    transition: border-color 0.2s;
 }
 
 .fighter-card:hover {
-    border-color: rgba(212, 175, 55, 0.4);
-    background: #0e0e0e;
-    transform: translateX(3px);
+    border-color: #444;
 }
 
 .fighter-card.champ {
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    background: linear-gradient(90deg, rgba(212,175,55,0.08) 0%, rgba(10,10,10,1) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: linear-gradient(90deg, #18160f 0%, #141414 100%);
 }
 
 .rank-num {
-    font-size: 16px;
-    font-weight: 900;
-    color: #d4af37;
+    font-weight: 800;
+    font-size: 15px;
+    color: #888;
     width: 35px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.pfp-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    margin-right: 15px;
-    flex-shrink: 0;
-    background: #151515;
-}
-
-.champ .pfp-avatar {
-    border-color: #d4af37;
 }
 
 .fighter-info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-grow: 1;
 }
 
 .flag {
-    font-size: 14px;
-    font-weight: bold;
-    color: #666;
-    text-transform: uppercase;
+    font-size: 16px;
 }
 
 .fighter-name {
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 600;
     color: #fff;
-}
-
-.champ .fighter-name {
-    color: #d4af37;
+    font-size: 15px;
 }
 
 .fighter-record {
-    font-size: 12px;
-    font-weight: bold;
-    color: #777;
-    letter-spacing: 1px;
-    text-align: right;
-    margin-left: auto;
+    font-family: monospace;
+    color: #888;
+    font-size: 14px;
 }
 
-.division-header {
-    font-size: 18px;
-    font-weight: 800;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 35px 0 15px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Футер */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 60px;
 }
 
-.division-header::after {
-    content: '';
-    flex-grow: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* ==========================================
-   ПОДВАЛ (FOOTER)
-   ========================================== */
-footer { 
-    padding: 30px; 
-    text-align: center; 
-    border-top: 1px solid rgba(255, 255, 255, 0.03); 
-    color: #444; 
-    font-size: 10px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    background: #050505; 
-}
-
-/* ==========================================
-   АДАПТИВНОСТЬ
-   ========================================== */
+/* Адаптивность для мобильных телефонов (чтобы шапка не обрезалась) */
 @media (max-width: 768px) {
-    header { 
-        flex-direction: column; 
-        gap: 15px; 
-        padding: 15px; 
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 12px;
     }
-    .fighter-card {
-        padding: 10px 14px;
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+        margin: 0;
+        padding: 0;
     }
-    .pfp-avatar {
-        width: 38px;
-        height: 38px;
-        margin-right: 10px;
-    }
-    .fighter-name {
+
+    header nav ul li a {
         font-size: 12px;
+        padding: 2px 4px;
+    }
+
+    .container {
+        padding: 0 15px;
+        margin: 25px auto;
+    }
+
+    .page-title {
+        font-size: 26px;
     }
 }

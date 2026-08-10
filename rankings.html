@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL | Рейтинги</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: #050505; color: #ffffff; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 50px; background: rgba(5, 5, 5, 0.9); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: #fff; text-decoration: none; }
+        .logo span { color: #d4af37; }
+        nav { display: flex; gap: 30px; }
+        nav a { color: #888; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { color: #fff; }
+
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .page-title { font-size: 32px; text-align: center; text-transform: uppercase; margin-bottom: 50px; letter-spacing: 2px; }
+        
+        .rankings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .division { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05); padding: 25px; }
+        .division-name { font-size: 16px; color: #d4af37; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 10px; }
+        .champion { font-size: 14px; font-weight: bold; text-align: center; margin-bottom: 20px; color: #fff; }
+        
+        .fighter-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.02); font-size: 13px; }
+        .fighter-row:last-child { border-bottom: none; }
+        .rank { width: 30px; color: #888; font-weight: bold; }
+        .name { flex: 1; }
+        .record { color: #666; text-align: right; }
+        
+        .nr-title { margin-top: 15px; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .nr-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NFL<span>.</span></a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="tournaments.html">Турниры</a>
+            <a href="rankings.html" class="active">Рейтинг бойцов</a>
+            <a href="rules.html">Регламент</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Официальные рейтинги NFL</h1>
+        <div class="rankings-grid">
+
+            <!-- НАИЛЕГЧАЙШИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Наилегчайший вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇺🇸 Деметриус Джонсон</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇲🇲 Джошуа Ван</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇺🇸 Брэндон Ройвал</span><span class="record">[1-1-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇧🇷 Александр Пантожа</span><span class="record">[0-2-0]</span></div>
+                <div class="nr-row"><span class="name">🇰🇿 Асу Алмабаев</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- ЛЕГЧАЙШИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Легчайший вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇷🇺 Умар Нурмагомедов</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇷🇺 Пётр Ян</span><span class="record">[1-0-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇺🇸 Коди Гарбрандт</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Шон О'Мэлли</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Ти Джей Диллашоу</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇬🇪 Мераб Двалишвили</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Пейтон Тэлботт</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- ПОЛУЛЁГКИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Полулёгкий вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇷🇺 Мовсар Евлоев</span><span class="record">[2-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇺🇸 Макс Холлоуэй</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇦🇺 Александр Волкановски</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">4.</span><span class="name">🇧🇷 Эдсон Барбоза</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">5.</span><span class="name">🇧🇷 Жозе Альдо</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">6.</span><span class="name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Арнольд Аллен</span><span class="record">[1-1-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇺🇸 Брайан Ортега</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇲🇽 Яир Родригез</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇪🇸 Илия Топурия</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Энтони Петтис</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇮🇪 Конор Макгрегор</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇬🇪 Александр Топурия</span><span class="record">[0-1-0]</span></div>
+            </div>
+
+            <!-- ЛЁГКИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Лёгкий вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇺🇸 Нейт Диаз (BMF)</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇷🇺 Магомед Зайнуков</span><span class="record">[2-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇷🇺 Усман Нурмагомедов</span><span class="record">[2-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">4.</span><span class="name">🇺🇸 Тони Фергюсон</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">5.</span><span class="name">🇦🇲 Арман Царукян</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">6.</span><span class="name">🇦🇺 Куиллиан Саллкилд</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">7.</span><span class="name">🇧🇷 Маурисио Руффи</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">8.</span><span class="name">🇺🇸 Хорхе Масвидаль</span><span class="record">[1-1-0]</span></div>
+                <div class="fighter-row"><span class="rank">9.</span><span class="name">🇺🇸 Бобби Грин</span><span class="record">[1-1-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇧🇷 Рафаэль Дос Аньос</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Джастин Гейджи</span><span class="record">[0-2-0]</span></div>
+                <div class="nr-row"><span class="name">🇷🇺 Хабиб Нурмагомедов</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Дастин Порье</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇧🇷 Чарльз Оливейра</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Пэдди Пимблетт</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Дональд Серроне</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇹🇷 Абдул Рахман Якьяев</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Бенсон Хендерсон</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇳🇿 Дэн Хукер</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- ПОЛУСРЕДНИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Полусредний вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇷🇺 Ислам Махачев</span><span class="record">[2-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇳🇬 Камару Усман</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇺🇸 Ник Диаз</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">4.</span><span class="name">🇦🇪 Хамзат Чимаев</span><span class="record">[1-1-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇧🇷 Карлос Пратес</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇪🇨 Майкл Моралес</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇰🇿 Шавкат Рахмонов</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇮🇪 Иэн Мачадо Гэрри</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇷🇺 Абубакар Нурмагомедов</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- СРЕДНИЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Средний вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇧🇷 Вандерлей Сильва</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇳🇬 Исраэль Адесанья</span><span class="record">[1-0-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇷🇺 Азамат Бекоев</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇧🇷 Андерсон Сильва</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇨🇦 Жорж Сен-Пьер</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Шон Стрикленд</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- ПОЛУТЯЖЁЛЫЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Полутяжёлый вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🇷🇺 Магомед Анкалаев</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇵🇱 Ян Блахович</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇧🇷 Алекс Перейра</span><span class="record">[1-0-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇺🇸 Даниэль Кормье</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Джон Джонс</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇸🇪 Александр Густафссон</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇳🇿 Навахо Стирлинг</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇨🇭 Волкан Оздемир</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+            <!-- ТЯЖЁЛЫЙ ВЕС -->
+            <div class="division">
+                <div class="division-name">⚖️ Тяжёлый вес</div>
+                <div class="champion">🏆 - Vacant</div>
+                <div class="fighter-row"><span class="rank">1.</span><span class="name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Том Аспиналл</span><span class="record">[2-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">2.</span><span class="name">🇺🇸🇲🇽 Кейн Веласкес</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">3.</span><span class="name">🇳🇱 Алистар Оверим</span><span class="record">[1-0-0]</span></div>
+                <div class="fighter-row"><span class="rank">4.</span><span class="name">🇭🇷 Мирко Кро Коп</span><span class="record">[1-1-0]</span></div>
+                <div class="nr-title">Не в рейтинге (N/R)</div>
+                <div class="nr-row"><span class="name">🇺🇸 Рэнди Кутюр</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Стипе Миочич</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇨🇲 Френсис Нганну</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇷🇸 Александр Ракич</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇫🇷 Сирилл Ган</span><span class="record">[0-1-0]</span></div>
+                <div class="nr-row"><span class="name">🇺🇸 Джош Хокит</span><span class="record">[0-0-0]</span></div>
+                <div class="nr-row"><span class="name">🇷🇺 Ризван Куниев</span><span class="record">[0-0-0]</span></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -24,7 +24,7 @@ header {
     align-items: center; 
     padding: 20px 50px; 
     background: rgba(5, 5, 5, 0.95); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
     position: sticky; 
     top: 0; 
     z-index: 100; 
@@ -45,8 +45,8 @@ header {
 
 nav ul { 
     display: flex; 
-    gap: 15px; 
-    list-style: none; /* Убирает точки у списка */
+    gap: 10px; 
+    list-style: none; 
     margin: 0;
     padding: 0;
 }
@@ -64,7 +64,8 @@ nav a {
     font-weight: bold; 
     transition: 0.3s; 
     white-space: nowrap; 
-    padding: 8px 14px; 
+    padding: 10px 16px; 
+    border-radius: 4px;
     display: inline-block;
 }
 
@@ -75,21 +76,22 @@ nav a.active {
 }
 
 /* ==========================================
-   КНОПКИ И КОНТЕЙНЕРЫ
+   КОНТЕЙНЕРЫ
    ========================================== */
 .container { 
-    max-width: 900px; 
+    max-width: 850px; 
     margin: 40px auto; 
     padding: 0 20px; 
     min-height: calc(100vh - 200px); 
 }
 
 .page-title { 
-    font-size: 28px; 
+    font-size: 32px; 
     text-transform: uppercase; 
     margin-bottom: 30px; 
     text-align: center; 
-    letter-spacing: 2px; 
+    letter-spacing: 3px; 
+    font-weight: 900;
 }
 
 .section-label { 
@@ -97,203 +99,125 @@ nav a.active {
     color: #d4af37; 
     letter-spacing: 3px; 
     text-transform: uppercase; 
-    margin-bottom: 10px; 
+    margin-bottom: 8px; 
     display: block; 
     text-align: center;
 }
 
-.btn { 
-    padding: 14px 28px; 
-    background-color: #ffffff; 
-    color: #000000; 
-    text-align: center; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    display: inline-block; 
-    transition: 0.3s; 
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover { 
-    background-color: #d4af37; 
-    color: #ffffff; 
-}
-
 /* ==========================================
-   ТАБЛИЦА РЕЙТИНГА P4P (P4P.HTML)
+   СТИЛЬНЫЙ СТОЛБЕЦ/СПИСОК РЕЙТИНГОВ (P4P & DIVISIONS)
    ========================================== */
-.ranking-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    background: #0a0a0a; 
-    border: 1px solid rgba(255, 255, 255, 0.05); 
-    margin-bottom: 30px; 
+.rankings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
-.ranking-table th, 
-.ranking-table td { 
-    padding: 15px 20px; 
-    text-align: left; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-    font-size: 13px; 
-}
-
-.ranking-table th { 
-    background: rgba(255, 255, 255, 0.02); 
-    color: #d4af37; 
-    font-size: 11px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-}
-
-.ranking-table td.rank { 
-    font-weight: bold; 
-    color: #d4af37; 
-    width: 60px; 
-}
-
-.ranking-table td.fighter { 
-    font-weight: bold; 
-    text-transform: uppercase; 
-}
-
-.ranking-table td.record { 
-    color: #888; 
-    text-align: right; 
-}
-
-/* ==========================================
-   ДИВИЗИОНЫ (DIVISIONS.HTML)
-   ========================================== */
-.division-block {
+.fighter-card {
+    display: flex;
+    align-items: center;
     background: #0a0a0a;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    margin-bottom: 25px;
+    border-radius: 6px;
+    padding: 12px 20px;
+    transition: 0.2s ease-in-out;
 }
 
-.division-title {
+.fighter-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: #0e0e0e;
+    transform: translateX(3px);
+}
+
+.fighter-card.champ {
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: linear-gradient(90deg, rgba(212,175,55,0.08) 0%, rgba(10,10,10,1) 100%);
+}
+
+.rank-num {
     font-size: 16px;
+    font-weight: 900;
     color: #d4af37;
+    width: 35px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.pfp-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-right: 15px;
+    flex-shrink: 0;
+    background: #151515;
+}
+
+.champ .pfp-avatar {
+    border-color: #d4af37;
+}
+
+.fighter-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.flag {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.fighter-name {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.champ .fighter-name {
+    color: #d4af37;
+}
+
+.fighter-record {
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+    letter-spacing: 1px;
+    text-align: right;
+    margin-left: auto;
+}
+
+.division-header {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    padding-bottom: 8px;
-}
-
-.division-list {
-    list-style: none;
-}
-
-.division-list li {
-    font-size: 13px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    margin: 35px 0 15px 0;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-.division-list li:last-child {
-    border-bottom: none;
-}
-
-.champ-item {
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* ==========================================
-   РЕГЛАМЕНТ (RULES.HTML)
-   ========================================== */
-.page-section { 
-    padding: 30px 20px 60px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    min-height: calc(100vh - 140px); 
-}
-
-.grid { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 15px; 
-    margin-bottom: 25px; 
-}
-
-.card { 
-    background: #0a0a0a; 
-    padding: 25px 20px; 
-    border: 1px solid rgba(255, 255, 255, 0.03); 
-}
-
-.card h3 { 
-    font-size: 16px; 
-    margin-bottom: 10px; 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-}
-
-.card p { 
-    color: #777; 
-    font-size: 13px; 
-    line-height: 1.5; 
-}
-
-.plan-box { 
-    background: #0a0a0a; 
-    border: 1px solid rgba(212, 175, 55, 0.2); 
-    padding: 20px; 
-}
-
-.plan-box h4 { 
-    color: #d4af37; 
-    font-size: 14px; 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-    margin-bottom: 15px; 
-}
-
-.plan-round { 
-    margin-bottom: 15px; 
-}
-
-.plan-round-title { 
-    font-size: 12px; 
-    font-weight: bold; 
-    color: #ffffff; 
-    margin-bottom: 6px; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-    padding-bottom: 3px; 
-}
-
-.plan-list { 
-    list-style: none; 
-}
-
-.plan-list li { 
-    font-size: 12px; 
-    color: #888; 
-    margin-bottom: 4px; 
-    position: relative; 
-    padding-left: 12px; 
-}
-
-.plan-list li::before { 
-    content: "—"; 
-    position: absolute; 
-    left: 0; 
-    color: #d4af37; 
+.division-header::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* ==========================================
    ПОДВАЛ (FOOTER)
    ========================================== */
 footer { 
-    padding: 25px; 
+    padding: 30px; 
     text-align: center; 
     border-top: 1px solid rgba(255, 255, 255, 0.03); 
     color: #444; 
@@ -306,23 +230,21 @@ footer {
 /* ==========================================
    АДАПТИВНОСТЬ
    ========================================== */
-@media (min-width: 768px) {
-    .grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 20px; 
-    }
-}
-
 @media (max-width: 768px) {
     header { 
         flex-direction: column; 
         gap: 15px; 
-        padding: 20px; 
-        text-align: center; 
+        padding: 15px; 
     }
-    nav ul { 
-        flex-wrap: wrap;
-        justify-content: center;
+    .fighter-card {
+        padding: 10px 14px;
+    }
+    .pfp-avatar {
+        width: 38px;
+        height: 38px;
+        margin-right: 10px;
+    }
+    .fighter-name {
+        font-size: 12px;
     }
 }

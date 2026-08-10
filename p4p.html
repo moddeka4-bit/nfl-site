@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NFL | Рейтинг P4P</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { background-color: #050505; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
+        header { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #fff; text-decoration: none; padding: 5px; }
+        .logo span { color: #d4af37; }
+        nav ul { list-style: none; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        nav a { background: transparent; border: none; color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 10px 14px; display: inline-block; }
+        nav a.active { color: #fff; background: rgba(255, 255, 255, 0.08); }
+        .page-section { padding: 30px 20px 60px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 140px); }
+        .section-label { font-size: 11px; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
+        .table-wrapper { width: 100%; overflow-x: auto; }
+        .p4p-table { width: 100%; border-collapse: collapse; background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.03); white-space: nowrap; }
+        .p4p-table th, .p4p-table td { padding: 14px 15px; text-align: left; font-size: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
+        .p4p-table th { color: #d4af37; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; background: rgba(255,255,255,0.01); }
+        .bmf-badge { background: linear-gradient(135deg, #222, #444); color: #d4af37; border: 1px solid #d4af37; padding: 2px 5px; font-size: 9px; font-weight: bold; letter-spacing: 1px; border-radius: 2px; margin-right: 5px; text-transform: uppercase; }
+        .admin-box { margin-top: 40px; background: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.4); padding: 25px 20px; }
+        .admin-box h3 { color: #d4af37; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .admin-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; }
+        .admin-row span { width: 35px; font-weight: bold; color: #d4af37; font-size: 13px; }
+        .admin-input { flex: 2; padding: 10px; background: #111; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 12px; }
+        .admin-input-rec { flex: 1; padding: 10px; background: #111; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 12px; }
+        .admin-actions { display: flex; gap: 15px; margin-top: 20px; }
+        .btn { width: 100%; padding: 16px 20px; background-color: #ffffff; color: #000000; text-align: center; text-decoration: none; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; display: inline-block; }
+        .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+        footer { padding: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); color: #444; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: #050505; }
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 20px 40px; }
+            nav ul { gap: 30px; }
+            nav a { font-size: 12px; }
+            .page-section { padding: 60px 40px; }
+            .section-title { font-size: 38px; }
+            .btn { width: auto; padding: 18px 35px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NFL<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="divisions.html">Дивизионы</a></li>
+                <li><a href="rules.html">Регламент</a></li>
+                <li><a href="p4p.html" class="active">Рейтинг P4P</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-section">
+        <span class="section-label">Элита организации</span>
+        <h2 class="section-title">Рейтинг P4P</h2>
+        <div class="table-wrapper">
+            <table class="p4p-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">Место</th>
+                        <th>Боец</th>
+                        <th style="width: 100px; text-align: right;">Рекорд</th>
+                    </tr>
+                </thead>
+                <tbody id="p4p-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="admin-box">
+            <h3>Управление рейтингом (Админка)</h3>
+            <p style="color: #888; font-size: 12px; margin-bottom: 15px;">Измените данные и нажмите сохранить.</p>
+            <div id="admin-inputs-container"></div>
+            <div class="admin-actions">
+                <button type="button" class="btn" id="save-p4p-btn">Сохранить рейтинг</button>
+                <button type="button" class="btn btn-outline" id="reset-p4p-btn">Сбросить по умолчанию</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>
+
+    <script>
+        document.getElementById('save-p4p-btn').addEventListener('click', saveP4P);
+        document.getElementById('reset-p4p-btn').addEventListener('click', resetP4P);
+
+        const defaultP4P = [
+            { fighter: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Том Аспиналл", record: "[2-0-0]" },
+            { fighter: "🇷🇺 Ислам Махачев", record: "[2-0-0]" },
+            { fighter: "🇷🇺 Магомед Зайнуков", record: "[2-0-0]" },
+            { fighter: "🇷🇺 Мовсар Евлоев", record: "[2-0-0]" },
+            { fighter: "🇷🇺 Усман Нурмагомедов", record: "[2-0-0]" },
+            { fighter: "BMF 🇺🇸 Нейт Диаз", record: "[1-0-0]" },
+            { fighter: "🇳🇱 Алистар Оверим", record: "[1-0-0]" },
+            { fighter: "🇷🇺 Магомед Анкалаев", record: "[1-0-0]" },
+            { fighter: "🇵🇱 Ян Блахович", record: "[1-0-0]" },
+            { fighter: "🇧🇷 Вандерлей Сильва", record: "[1-0-0]" },
+            { fighter: "🇺🇸 Макс Холлоуэй", record: "[1-0-0]" },
+            { fighter: "🇷🇺 Умар Нурмагомедов", record: "[1-0-0]" },
+            { fighter: "🇺🇸 Деметриус Джонсон", record: "[1-0-0]" },
+            { fighter: "🇳🇬 Камару Усман", record: "[1-0-0]" },
+            { fighter: "🇧🇷 Алекс Перейра", record: "[1-0-0]" }
+        ];
+
+        function getFightersData() {
+            let data = localStorage.getItem('nfl_p4p_data');
+            return data ? JSON.parse(data) : defaultP4P;
+        }
+
+        function renderP4P() {
+            const tbody = document.getElementById('p4p-tbody');
+            const adminContainer = document.getElementById('admin-inputs-container');
+            if (!tbody) return;
+
+            let fighters = getFightersData();
+            tbody.innerHTML = '';
+            adminContainer.innerHTML = '';
+
+            fighters.forEach((item, index) => {
+                let posNum = (index + 1) + ".";
+                let fighterDisplay = item.fighter;
+                if(fighterDisplay.includes("BMF")) {
+                    fighterDisplay = fighterDisplay.replace("BMF", "").trim();
+                    fighterDisplay = `<span class="bmf-badge">BMF</span> ${fighterDisplay}`;
+                }
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td style="color: #d4af37; font-weight: bold;">${posNum}</td>
+                        <td>${fighterDisplay}</td>
+                        <td style="text-align: right; color: #888;">${item.record}</td>
+                    </tr>
+                `;
+
+                adminContainer.innerHTML += `
+                    <div class="admin-row">
+                        <span>${posNum}</span>
+                        <input type="text" class="admin-input" id="admin-fighter-${index}" value="${item.fighter}">
+                        <input type="text" class="admin-input-rec" id="admin-record-${index}" value="${item.record}">
+                    </div>
+                `;
+            });
+        }
+
+        function saveP4P() {
+            let newFighters = [];
+            for (let i = 0; i < 15; i++) {
+                let fInput = document.getElementById(`admin-fighter-${i}`);
+                let rInput = document.getElementById(`admin-record-${i}`);
+                if (fInput && rInput) {
+                    newFighters.push({ fighter: fInput.value, record: rInput.value });
+                }
+            }
+            localStorage.setItem('nfl_p4p_data', JSON.stringify(newFighters));
+            renderP4P();
+            alert('Рейтинг успешно обновлен!');
+        }
+
+        function resetP4P() {
+            localStorage.removeItem('nfl_p4p_data');
+            renderP4P();
+            alert('Рейтинг сброшен к исходному!');
+        }
+
+        renderP4P();
+    </script>
+</body>
+</html>

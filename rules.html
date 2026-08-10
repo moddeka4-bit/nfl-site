@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NFL | Регламент</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { background-color: #050505; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
+        header { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #fff; text-decoration: none; padding: 5px; }
+        .logo span { color: #d4af37; }
+        nav ul { list-style: none; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        nav a { background: transparent; border: none; color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 10px 14px; display: inline-block; }
+        nav a.active { color: #fff; background: rgba(255, 255, 255, 0.08); }
+        .page-section { padding: 30px 20px 60px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 140px); }
+        .section-label { font-size: 11px; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
+        .grid { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+        .card { background: #0a0a0a; padding: 25px 20px; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .card h3 { font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .card p { color: #777; font-size: 13px; line-height: 1.5; }
+        .btn { padding: 12px 20px; background-color: #ffffff; color: #000000; text-align: center; text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; display: inline-block; }
+        .plan-box { background: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2); padding: 20px; }
+        .plan-box h4 { color: #d4af37; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; }
+        .plan-round { margin-bottom: 15px; }
+        .plan-round-title { font-size: 12px; font-weight: bold; color: #fff; margin-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 3px; }
+        .plan-list { list-style: none; }
+        .plan-list li { font-size: 12px; color: #888; margin-bottom: 4px; position: relative; padding-left: 12px; }
+        .plan-list li::before { content: "—"; position: absolute; left: 0; color: #d4af37; }
+        footer { padding: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); color: #444; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: #050505; }
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 20px 40px; }
+            nav ul { gap: 30px; }
+            nav a { font-size: 12px; }
+            .page-section { padding: 60px 40px; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+            .section-title { font-size: 38px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NFL<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="divisions.html">Дивизионы</a></li>
+                <li><a href="rules.html" class="active">Регламент</a></li>
+                <li><a href="p4p.html">Рейтинг P4P</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-section">
+        <span class="section-label">Механика и Обучение</span>
+        <h2 class="section-title">Регламент и геймплан</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Суть противостояния</h3>
+                <p>Соперник составляет план на каждый раунд: как проводит бой и какими действиями пытается вас переиграть. Вы делаете то же самое. ИИ симулирует поединок, учитывая оба плана.</p>
+            </div>
+            <div class="card">
+                <h3>Помощь тренеров</h3>
+                <p>Опытные участники лиги, которые уже умеют выстраивать победные стратегии, могут помочь вам разобраться в чате.</p>
+            </div>
+            <div class="card">
+                <h3>Порядок боев и канал</h3>
+                <p>В канале публикуется анонс карда. Отправьте тактику человеку в личку (указан в сообщении).</p>
+                <div style="margin-top: 15px;">
+                    <a href="https://t.me/novapromogemini" target="_blank" class="btn">Канал: t.me/novapromogemini</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="plan-box">
+            <h4>Шаблон геймплана (3 раунда)</h4>
+            <div class="plan-round">
+                <div class="plan-round-title">РАУНД 1</div>
+                <ul class="plan-list">
+                    <li>Основной геймплан (разведка, дистанция)</li>
+                    <li>Основной геймплан (удары, комбинации, джеб)</li>
+                    <li>План Б (если не получается — клинч / борьба)</li>
+                </ul>
+            </div>
+            <div class="plan-round">
+                <div class="plan-round-title">РАУНД 2</div>
+                <ul class="plan-list">
+                    <li>Основной геймплан (увеличение темпа, давление)</li>
+                    <li>План Б (если устали — клинч, удержание)</li>
+                </ul>
+            </div>
+            <div class="plan-round" style="margin-bottom: 0;">
+                <div class="plan-round-title">РАУНД 3</div>
+                <ul class="plan-list">
+                    <li>Основной геймплан (финальный темп, активность)</li>
+                    <li>План Б (если проигрываем — риск, финиш)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>
+</body>
+</html>

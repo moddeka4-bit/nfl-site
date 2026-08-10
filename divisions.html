@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NFL | Дивизионы</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { background-color: #050505; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
+        header { width: 100%; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #fff; text-decoration: none; padding: 5px; }
+        .logo span { color: #d4af37; }
+        nav ul { list-style: none; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        nav a { background: transparent; border: none; color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 10px 14px; display: inline-block; }
+        nav a.active { color: #fff; background: rgba(255, 255, 255, 0.08); }
+        .page-section { padding: 30px 20px 60px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 140px); }
+        .section-label { font-size: 11px; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
+        .grid { display: flex; flex-direction: column; gap: 15px; }
+        .card { background: #0a0a0a; padding: 25px 20px; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .card h3 { font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .card p { color: #777; font-size: 13px; line-height: 1.5; }
+        .btn { width: 100%; padding: 16px 20px; background-color: #ffffff; color: #000000; text-align: center; text-decoration: none; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; display: inline-block; }
+        footer { padding: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); color: #444; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: #050505; }
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 20px 40px; }
+            nav ul { gap: 30px; }
+            nav a { font-size: 12px; }
+            .page-section { padding: 60px 40px; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+            .section-title { font-size: 38px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NFL<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="divisions.html" class="active">Дивизионы</a></li>
+                <li><a href="rules.html">Регламент</a></li>
+                <li><a href="p4p.html">Рейтинг P4P</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-section">
+        <span class="section-label">Весовые категории</span>
+        <h2 class="section-title">Дивизионы лиги</h2>
+        <div class="grid">
+            <div class="card"><h3>Тяжелый вес</h3><p>Максимальная мощь и нокаутирующий потенциал в каждом раунде.</p></div>
+            <div class="card"><h3>Полутяжелый вес</h3><p>Баланс разрушительной силы и взрывной динамики в октагоне.</p></div>
+            <div class="card"><h3>Средний вес</h3><p>Выверенная техника, жесткий прессинг и универсальность навыков.</p></div>
+            <div class="card"><h3>Полусредний вес</h3><p>Высочайшая динамика, техничный арсенал и беспощадный темп.</p></div>
+            <div class="card"><h3>Легкий вес</h3><p>Скорость мысли и движения. Противостояние элитных универсалов.</p></div>
+            <div class="card"><h3>Полулегкий вес</h3><p>Молниеносные комбинации, непрерывное движение и выносливость.</p></div>
+            <div class="card"><h3>Легчайший вес</h3><p>Ювелирная точность, высокий темп и техническое превосходство.</p></div>
+            <div class="card"><h3>Наилегчайший вес</h3><p>Предельная скорость реакции и молниеносные переходы.</p></div>
+        </div>
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="https://telegra.ph/Oficialnyj-rejting-VFC-07-13" target="_blank" class="btn" style="max-width: 350px;">Рейтинги дивизионов (Telegraph)</a>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>
+</body>
+</html>

@@ -2,9 +2,87 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL | Регламент</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили specifically для страницы регламента */
+        .rules-card {
+            background: #121212;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .rules-card h2 {
+            font-size: 20px;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rules-card p {
+            color: #ccc;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .rules-card p:last-child {
+            margin-bottom: 0;
+        }
+        .telegram-link {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .telegram-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        /* Блок шаблона геймплана */
+        .gameplan-box {
+            background: #181818;
+            border: 1px solid #262626;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .round-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 3px solid #d4af37;
+            padding-left: 8px;
+        }
+        .round-title:first-child {
+            margin-top: 0;
+        }
+        .plan-item {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .plan-item::before {
+            content: "•";
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,60 +90,59 @@
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="divisions.html">Дивизионы</a></li>
+                <li><a href="tournaments.html">Турниры</a></li>
+                <li><a href="rankings.html">Рейтинг бойцов</a></li>
                 <li><a href="rules.html" class="active">Регламент</a></li>
                 <li><a href="p4p.html">Рейтинг P4P</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-section">
-        <span class="section-label">Механика и Обучение</span>
-        <h2 class="section-title">Регламент и геймплан</h2>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Суть противостояния</h3>
-                <p>Соперник составляет план на каждый раунд: как проводит бой и какими действиями пытается вас переиграть. Вы делаете то же самое. ИИ симулирует поединок, учитывая оба плана.</p>
-            </div>
-            <div class="card">
-                <h3>Помощь тренеров</h3>
-                <p>Опытные участники лиги, которые уже умеют выстраивать победные стратегии, могут помочь вам разобраться в чате.</p>
-            </div>
-            <div class="card">
-                <h3>Порядок боев и канал</h3>
-                <p>В канале публикуется анонс карда. Отправьте тактику человеку в личку (указан в сообщении).</p>
-                <div style="margin-top: 15px;">
-                    <a href="https://t.me/novapromogemini" target="_blank" class="btn">Канал: t.me/novapromogemini</a>
-                </div>
+    <div class="container">
+        <span class="section-label">Механика и обучение</span>
+        <h1 class="page-title">Регламент и геймплан</h1>
+
+        <!-- Суть противостояния -->
+        <div class="rules-card">
+            <h2>⚔️ Суть противостояния</h2>
+            <p>Соперник составляет план на каждый раунд: как проводит бой и какими действиями пытается вас переиграть. Вы делаете то же самое. ИИ симулирует поединок, учитывая оба плана.</p>
+        </div>
+
+        <!-- Помощь тренеров -->
+        <div class="rules-card">
+            <h2>🤝 Помощь тренеров</h2>
+            <p>Опытные участники лиги, которые уже умеют выстраивать победные стратегии, могут помочь вам разобраться в чате.</p>
+        </div>
+
+        <!-- Порядок боев и канал -->
+        <div class="rules-card">
+            <h2>📢 Порядок боев и канал</h2>
+            <p>В канале публикуется анонс карда. Отправьте тактику человеку в личку (указан в сообщении).</p>
+            <p style="margin-top: 10px;">
+                Канал: <a href="https://t.me/novapromogemini" target="_blank" class="telegram-link">t.me/novapromogemini</a>
+            </p>
+        </div>
+
+        <!-- Шаблон геймплана -->
+        <div class="rules-card">
+            <h2>📋 Шаблон геймплана (3 раунда)</h2>
+            
+            <div class="gameplan-box">
+                <div class="round-title">Раунд 1</div>
+                <div class="plan-item">Основной геймплан (разведка, дистанция)</div>
+                <div class="plan-item">Основной геймплан (удары, комбинации, джеб)</div>
+                <div class="plan-item">План Б (если не получается — клинч / борьба)</div>
+
+                <div class="round-title">Раунд 2</div>
+                <div class="plan-item">Основной геймплан (увеличение темпа, давление)</div>
+                <div class="plan-item">План Б (если устали — клинч, удержание)</div>
+
+                <div class="round-title">Раунд 3</div>
+                <div class="plan-item">Основной геймплан (финальный темп, активность)</div>
+                <div class="plan-item">План Б (если проигрываем — риск, финиш)</div>
             </div>
         </div>
 
-        <div class="plan-box">
-            <h4>Шаблон геймплана (3 раунда)</h4>
-            <div class="plan-round">
-                <div class="plan-round-title">РАУНД 1</div>
-                <ul class="plan-list">
-                    <li>Основной геймплан (разведка, дистанция)</li>
-                    <li>Основной геймплан (удары, комбинации, джеб)</li>
-                    <li>План Б (если не получается — клинч / борьба)</li>
-                </ul>
-            </div>
-            <div class="plan-round">
-                <div class="plan-round-title">РАУНД 2</div>
-                <ul class="plan-list">
-                    <li>Основной геймплан (увеличение темпа, давление)</li>
-                    <li>План Б (если устали — клинч, удержание)</li>
-                </ul>
-            </div>
-            <div class="plan-round" style="margin-bottom: 0;">
-                <div class="plan-round-title">РАУНД 3</div>
-                <ul class="plan-list">
-                    <li>Основной геймплан (финальный темп, активность)</li>
-                    <li>План Б (если проигрываем — риск, финиш)</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>

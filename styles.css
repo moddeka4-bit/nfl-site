@@ -43,9 +43,16 @@ header {
     color: #d4af37; 
 }
 
-nav { 
+nav ul { 
     display: flex; 
-    gap: 20px; 
+    gap: 15px; 
+    list-style: none; /* Убирает точки у списка */
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
 }
 
 nav a { 
@@ -57,7 +64,8 @@ nav a {
     font-weight: bold; 
     transition: 0.3s; 
     white-space: nowrap; 
-    padding: 8px 12px; 
+    padding: 8px 14px; 
+    display: inline-block;
 }
 
 nav a:hover, 
@@ -67,8 +75,33 @@ nav a.active {
 }
 
 /* ==========================================
-   КНОПКИ И ОБЩИЕ ЭЛЕМЕНТЫ
+   КНОПКИ И КОНТЕЙНЕРЫ
    ========================================== */
+.container { 
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+    min-height: calc(100vh - 200px); 
+}
+
+.page-title { 
+    font-size: 28px; 
+    text-transform: uppercase; 
+    margin-bottom: 30px; 
+    text-align: center; 
+    letter-spacing: 2px; 
+}
+
+.section-label { 
+    font-size: 11px; 
+    color: #d4af37; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+    display: block; 
+    text-align: center;
+}
+
 .btn { 
     padding: 14px 28px; 
     background-color: #ffffff; 
@@ -91,132 +124,8 @@ nav a.active {
 }
 
 /* ==========================================
-   1. ГЛАВНАЯ СТРАНИЦА (INDEX.HTML)
+   ТАБЛИЦА РЕЙТИНГА P4P (P4P.HTML)
    ========================================== */
-.hero { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    min-height: calc(100vh - 140px); 
-    text-align: center; 
-    padding: 40px 20px; 
-}
-
-.hero h1 { 
-    font-size: 48px; 
-    text-transform: uppercase; 
-    letter-spacing: 4px; 
-    margin-bottom: 15px; 
-    font-weight: 900; 
-}
-
-.hero h1 span { 
-    color: #d4af37; 
-}
-
-.hero p { 
-    color: #888; 
-    font-size: 14px; 
-    max-width: 600px; 
-    line-height: 1.6; 
-    margin-bottom: 30px; 
-    letter-spacing: 1px; 
-}
-
-/* ==========================================
-   2. СТРАНИЦА ТУРНИРОВ (TOURNAMENTS.HTML)
-   ========================================== */
-.container { 
-    max-width: 800px; 
-    margin: 40px auto; 
-    padding: 0 20px; 
-    min-height: calc(100vh - 200px); 
-}
-
-.page-title { 
-    font-size: 28px; 
-    text-transform: uppercase; 
-    margin-bottom: 30px; 
-    text-align: center; 
-    letter-spacing: 2px; 
-}
-
-.fight-card { 
-    background: #0a0a0a; 
-    border: 1px solid rgba(255, 255, 255, 0.08); 
-    padding: 25px; 
-    margin-bottom: 20px; 
-    text-align: center; 
-    border-radius: 4px; 
-}
-
-.event-name { 
-    font-size: 22px; 
-    color: #d4af37; 
-    margin-bottom: 8px; 
-    font-weight: bold; 
-    text-transform: uppercase; 
-}
-
-.event-date { 
-    font-size: 11px; 
-    color: #888; 
-    letter-spacing: 2px; 
-    margin-bottom: 25px; 
-    text-transform: uppercase; 
-}
-
-.matchup { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 15px; 
-    padding: 15px 0; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-}
-
-.matchup:last-child { 
-    border-bottom: none; 
-}
-
-.fighter-name { 
-    font-size: 15px; 
-    font-weight: bold; 
-    flex: 1; 
-    text-transform: uppercase; 
-    word-wrap: break-word; 
-}
-
-.fighter-left { 
-    text-align: right; 
-}
-
-.fighter-right { 
-    text-align: left; 
-}
-
-.vs { 
-    font-size: 12px; 
-    color: #d4af37; 
-    font-weight: bold; 
-    letter-spacing: 1px; 
-    flex-shrink: 0; 
-    padding: 0 10px; 
-}
-
-.main-event .fighter-name { 
-    font-size: 18px; 
-    color: #ffffff; 
-}
-
-/* ==========================================
-   3. СТРАНИЦА РЕЙТИНГА (RANKINGS.HTML)
-   ========================================== */
-.ranking-container {
-    max-width: 1000px;
-}
-
 .ranking-table { 
     width: 100%; 
     border-collapse: collapse; 
@@ -227,7 +136,7 @@ nav a.active {
 
 .ranking-table th, 
 .ranking-table td { 
-    padding: 15px; 
+    padding: 15px 20px; 
     text-align: left; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
     font-size: 13px; 
@@ -258,29 +167,54 @@ nav a.active {
 }
 
 /* ==========================================
-   4. СТРАНИЦА РЕГЛАМЕНТА (RULES.HTML)
+   ДИВИЗИОНЫ (DIVISIONS.HTML)
+   ========================================== */
+.division-block {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.division-title {
+    font-size: 16px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 8px;
+}
+
+.division-list {
+    list-style: none;
+}
+
+.division-list li {
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    justify-content: space-between;
+}
+
+.division-list li:last-child {
+    border-bottom: none;
+}
+
+.champ-item {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ==========================================
+   РЕГЛАМЕНТ (RULES.HTML)
    ========================================== */
 .page-section { 
     padding: 30px 20px 60px; 
     max-width: 1200px; 
     margin: 0 auto; 
     min-height: calc(100vh - 140px); 
-}
-
-.section-label { 
-    font-size: 11px; 
-    color: #d4af37; 
-    letter-spacing: 3px; 
-    text-transform: uppercase; 
-    margin-bottom: 10px; 
-    display: block; 
-}
-
-.section-title { 
-    font-size: 26px; 
-    font-weight: 700; 
-    margin-bottom: 25px; 
-    text-transform: uppercase; 
 }
 
 .grid { 
@@ -370,16 +304,13 @@ footer {
 }
 
 /* ==========================================
-   АДАПТИВНОСТЬ (MEDIA QUERIES)
+   АДАПТИВНОСТЬ
    ========================================== */
 @media (min-width: 768px) {
     .grid { 
         display: grid; 
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
         gap: 20px; 
-    }
-    .section-title { 
-        font-size: 38px; 
     }
 }
 
@@ -390,35 +321,8 @@ footer {
         padding: 20px; 
         text-align: center; 
     }
-    nav { 
-        width: 100%; 
-        justify-content: center; 
-        overflow-x: auto; 
-        padding-bottom: 5px; 
-    }
-    .hero h1 { 
-        font-size: 32px; 
-    }
-    .container { 
-        padding: 0 15px; 
-        margin: 20px auto; 
-    }
-    .fight-card { 
-        padding: 15px; 
-    }
-    .matchup { 
-        flex-direction: row; 
-        font-size: 13px; 
-    }
-    .fighter-name { 
-        font-size: 13px; 
-    }
-    .main-event .fighter-name { 
-        font-size: 15px; 
-    }
-    .ranking-table th, 
-    .ranking-table td { 
-        padding: 10px; 
-        font-size: 12px; 
+    nav ul { 
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }

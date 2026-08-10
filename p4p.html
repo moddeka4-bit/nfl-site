@@ -35,7 +35,7 @@
         .p4p-table th, .p4p-table td { padding: 14px 15px; text-align: left; font-size: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
         .p4p-table th { color: #d4af37; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; background: rgba(255,255,255,0.01); }
         .bmf-badge { background: linear-gradient(135deg, #222, #444); color: #d4af37; border: 1px solid #d4af37; padding: 2px 5px; font-size: 9px; font-weight: bold; letter-spacing: 1px; border-radius: 2px; margin-right: 5px; text-transform: uppercase; }
-        footer { padding: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); color: #444; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: #050505; }
+        footer { padding: 25, text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); color: #444; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: #050505; }
         @media (min-width: 768px) {
             header { flex-direction: row; justify-content: space-between; padding: 20px 40px; }
             nav ul { gap: 30px; }
@@ -71,7 +71,9 @@
                         <th style="width: 100px; text-align: right;">Рекорд</th>
                     </tr>
                 </thead>
-                <tbody id="p4p-tbody"></tbody>
+                <tbody id="p4p-tbody">
+                    <tr><td colspan="3" style="text-align: center; color: #888;">Загрузка рейтинга...</td></tr>
+                </tbody>
             </table>
         </div>
     </div>
@@ -79,53 +81,40 @@
     <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>
 
     <script>
-        const defaultP4P = [
-            { fighter: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Том Аспиналл", record: "[2-0-0]" },
-            { fighter: "🇷🇺 Ислам Махачев", record: "[2-0-0]" },
-            { fighter: "🇷🇺 Магомед Зайнуков", record: "[2-0-0]" },
-            { fighter: "🇷🇺 Мовсар Евлоев", record: "[2-0-0]" },
-            { fighter: "🇷🇺 Усман Нурмагомедов", record: "[2-0-0]" },
-            { fighter: "BMF 🇺🇸 Нейт Диаз", record: "[1-0-0]" },
-            { fighter: "🇳🇱 Алистар Оверим", record: "[1-0-0]" },
-            { fighter: "🇷🇺 Магомед Анкалаев", record: "[1-0-0]" },
-            { fighter: "🇵🇱 Ян Блахович", record: "[1-0-0]" },
-            { fighter: "🇧🇷 Вандерлей Сильва", record: "[1-0-0]" },
-            { fighter: "🇺🇸 Макс Холлоуэй", record: "[1-0-0]" },
-            { fighter: "🇷🇺 Умар Нурмагомедов", record: "[1-0-0]" },
-            { fighter: "🇺🇸 Деметриус Джонсон", record: "[1-0-0]" },
-            { fighter: "🇳🇬 Камару Усман", record: "[1-0-0]" },
-            { fighter: "🇧🇷 Алекс Перейра", record: "[1-0-0]" }
-        ];
-
-        function renderPublicP4P() {
+        async function loadP4P() {
             const tbody = document.getElementById('p4p-tbody');
-            if (!tbody) return;
-
-            let data = localStorage.getItem('nfl_p4p_data');
-            let fighters = data ? JSON.parse(data) : defaultP4P;
-            
-            tbody.innerHTML = '';
-
-            fighters.forEach((item, index) => {
-                let posNum = (index + 1) + ".";
-                let fighterDisplay = item.fighter;
+            try {
+                // Загружаем файл p4p.json с сервера (добавляем случайный параметр, чтобы не кэшировалось)
+                let response = await fetch('p4p.json?v=' + new Date().getTime());
+                if (!response.ok) throw new Error('Ошибка загрузки данных');
                 
-                if (fighterDisplay.includes("BMF")) {
-                    let cleanName = fighterDisplay.replace("BMF", "").trim();
-                    fighterDisplay = `<span class="bmf-badge">BMF</span> ${cleanName}`;
-                }
+                let fighters = await response.json();
+                tbody.innerHTML = '';
 
-                tbody.innerHTML += `
-                    <tr>
-                        <td style="color: #d4af37; font-weight: bold;">${posNum}</td>
-                        <td>${fighterDisplay}</td>
-                        <td style="text-align: right; color: #888;">${item.record}</td>
-                    </tr>
-                `;
-            });
+                fighters.forEach((item, index) => {
+                    let posNum = (index + 1) + ".";
+                    let fighterDisplay = item.fighter;
+                    
+                    if (fighterDisplay.includes("BMF")) {
+                        let cleanName = fighterDisplay.replace("BMF", "").trim();
+                        fighterDisplay = `<span class="bmf-badge">BMF</span> ${cleanName}`;
+                    }
+
+                    tbody.innerHTML += `
+                        <tr>
+                            <td style="color: #d4af37; font-weight: bold;">${posNum}</td>
+                            <td>${fighterDisplay}</td>
+                            <td style="text-align: right; color: #888;">${item.record}</td>
+                        </tr>
+                    `;
+                });
+            } catch (error) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: #ff4444;">Ошибка загрузки рейтинга</td></tr>`;
+                console.error(error);
+            }
         }
 
-        renderPublicP4P();
+        loadP4P();
     </script>
 </body>
 </html>

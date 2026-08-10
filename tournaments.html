@@ -5,96 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL | Турниры</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Дополнительные стили specifically для страницы турниров */
+        .tournament-card {
+            background: #121212;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .tournament-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .tournament-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tournament-title span {
+            color: #d4af37;
+        }
+        .tournament-date {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .card-section-title {
+            font-size: 18px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .fights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .fight-row {
+            background: #181818;
+            border: 1px solid #262626;
+            border-radius: 8px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        .fight-row:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+        .fighter-side {
+            width: 42%;
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .fighter-side.right {
+            text-align: right;
+        }
+        .vs-badge {
+            background: #222;
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 5px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">NFL<span>.</span></a>
         <nav>
-            <a href="index.html">Главная</a>
-            <a href="tournaments.html" class="active">Турниры</a>
-            <a href="rankings.html">Рейтинг бойцов</a>
-            <a href="rules.html">Регламент</a>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="tournaments.html" class="active">Турниры</a></li>
+                <li><a href="rankings.html">Рейтинг бойцов</a></li>
+                <li><a href="rules.html">Регламент</a></li>
+                <li><a href="p4p.html">Рейтинг P4P</a></li>
+            </ul>
         </nav>
     </header>
 
     <div class="container">
+        <span class="section-label">Расписание ивентов</span>
         <h1 class="page-title">Ближайшие турниры</h1>
 
-        <div class="fight-card">
-            <div class="event-name">NFL 3</div>
-            <div class="event-date">10 Августа 2026 | Главный кард</div>
-            
-            <div class="matchup main-event">
-    <div class="fighter-name fighter-left">Джошуа Ван</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Деметриус Джонсон</div>
-</div>
+        <!-- Карточка турнира NFL 3 -->
+        <div class="tournament-card">
+            <div class="tournament-header">
+                <div>
+                    <span style="color: #d4af37; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Номерной ивент</span>
+                    <div class="tournament-title">NFL <span>3</span></div>
+                </div>
+                <div class="tournament-date">📅 10 Августа 2026</div>
+            </div>
 
-<div class="matchup">
-    <div class="fighter-name fighter-left">Том Аспиналл</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Алистар Оверим</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Евлоев</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Холлоуэй</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Альдо</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Барбоза</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Умар</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Ян</div>
-</div>
+            <div class="card-section-title">Главный кард</div>
 
-<!-- Прелимы -->
-<div class="matchup">
-    <div class="fighter-name fighter-left">Фергюсон</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Саллкилд</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Абубакар</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Герри</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Двалишвили</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Тэлботт</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Стрикленд</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">А.Сильва</div>
-</div>
-
-<!-- Ранние прелимы -->
-<div class="matchup">
-    <div class="fighter-name fighter-left">Хокит</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Куниев</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Кутюр</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Миочич</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Пратес</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Рахмонов</div>
-</div>
-<div class="matchup">
-    <div class="fighter-name fighter-left">Хендерсон</div>
-    <div class="vs">VS</div>
-    <div class="fighter-name fighter-right">Хукер</div>
-</div>
+            <div class="fights-grid">
+                <!-- Бой 1 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Джошуа Ван</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Деметриус Джонсон</div>
+                </div>
+                <!-- Бой 2 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Том Аспиналл</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Алистар Оверим</div>
+                </div>
+                <!-- Бой 3 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Евлоев</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Холлоуэй</div>
+                </div>
+                <!-- Бой 4 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Альдо</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Барбоза</div>
+                </div>
+                <!-- Бой 5 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Умар</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Ян</div>
+                </div>
+                <!-- Бой 6 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Фергюсон</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Саллкилд</div>
+                </div>
+                <!-- Бой 7 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Абубакар</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Герри</div>
+                </div>
+                <!-- Бой 8 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Двалишвили</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Тэлботт</div>
+                </div>
+                <!-- Бой 9 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Стрикленд</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">А.Сильва</div>
+                </div>
+                <!-- Бой 10 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Хокит</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Куниев</div>
+                </div>
+                <!-- Бой 11 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Кутюр</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Миочич</div>
+                </div>
+                <!-- Бой 12 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Пратес</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Рахмонов</div>
+                </div>
+                <!-- Бой 13 -->
+                <div class="fight-row">
+                    <div class="fighter-side">Хендерсон</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="fighter-side right">Хукер</div>
+                </div>
+            </div>
         </div>
+
     </div>
+
+    <footer>&copy; 2026 Nova Fighting League. All rights reserved.</footer>
 </body>
 </html>

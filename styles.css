@@ -1,0 +1,424 @@
+/* ==========================================
+   ОБЩИЕ СТИЛИ И СБРОС (RESET)
+   ========================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    -webkit-tap-highlight-color: transparent; 
+}
+
+html, body { 
+    background-color: #050505; 
+    color: #ffffff; 
+    overflow-x: hidden; 
+}
+
+/* ==========================================
+   ШАПКА И НАВИГАЦИЯ (HEADER & NAV)
+   ========================================== */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 50px; 
+    background: rgba(5, 5, 5, 0.95); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    backdrop-filter: blur(10px); 
+}
+
+.logo { 
+    font-size: 28px; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
+    color: #fff; 
+    text-decoration: none; 
+}
+
+.logo span { 
+    color: #d4af37; 
+}
+
+nav { 
+    display: flex; 
+    gap: 20px; 
+}
+
+nav a { 
+    color: #888; 
+    text-decoration: none; 
+    font-size: 11px; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    transition: 0.3s; 
+    white-space: nowrap; 
+    padding: 8px 12px; 
+}
+
+nav a:hover, 
+nav a.active { 
+    color: #fff; 
+    background: rgba(255, 255, 255, 0.08); 
+}
+
+/* ==========================================
+   КНОПКИ И ОБЩИЕ ЭЛЕМЕНТЫ
+   ========================================== */
+.btn { 
+    padding: 14px 28px; 
+    background-color: #ffffff; 
+    color: #000000; 
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 11px; 
+    font-weight: bold; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    display: inline-block; 
+    transition: 0.3s; 
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover { 
+    background-color: #d4af37; 
+    color: #ffffff; 
+}
+
+/* ==========================================
+   1. ГЛАВНАЯ СТРАНИЦА (INDEX.HTML)
+   ========================================== */
+.hero { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: calc(100vh - 140px); 
+    text-align: center; 
+    padding: 40px 20px; 
+}
+
+.hero h1 { 
+    font-size: 48px; 
+    text-transform: uppercase; 
+    letter-spacing: 4px; 
+    margin-bottom: 15px; 
+    font-weight: 900; 
+}
+
+.hero h1 span { 
+    color: #d4af37; 
+}
+
+.hero p { 
+    color: #888; 
+    font-size: 14px; 
+    max-width: 600px; 
+    line-height: 1.6; 
+    margin-bottom: 30px; 
+    letter-spacing: 1px; 
+}
+
+/* ==========================================
+   2. СТРАНИЦА ТУРНИРОВ (TOURNAMENTS.HTML)
+   ========================================== */
+.container { 
+    max-width: 800px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+    min-height: calc(100vh - 200px); 
+}
+
+.page-title { 
+    font-size: 28px; 
+    text-transform: uppercase; 
+    margin-bottom: 30px; 
+    text-align: center; 
+    letter-spacing: 2px; 
+}
+
+.fight-card { 
+    background: #0a0a0a; 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    padding: 25px; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    border-radius: 4px; 
+}
+
+.event-name { 
+    font-size: 22px; 
+    color: #d4af37; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+}
+
+.event-date { 
+    font-size: 11px; 
+    color: #888; 
+    letter-spacing: 2px; 
+    margin-bottom: 25px; 
+    text-transform: uppercase; 
+}
+
+.matchup { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 15px; 
+    padding: 15px 0; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+.matchup:last-child { 
+    border-bottom: none; 
+}
+
+.fighter-name { 
+    font-size: 15px; 
+    font-weight: bold; 
+    flex: 1; 
+    text-transform: uppercase; 
+    word-wrap: break-word; 
+}
+
+.fighter-left { 
+    text-align: right; 
+}
+
+.fighter-right { 
+    text-align: left; 
+}
+
+.vs { 
+    font-size: 12px; 
+    color: #d4af37; 
+    font-weight: bold; 
+    letter-spacing: 1px; 
+    flex-shrink: 0; 
+    padding: 0 10px; 
+}
+
+.main-event .fighter-name { 
+    font-size: 18px; 
+    color: #ffffff; 
+}
+
+/* ==========================================
+   3. СТРАНИЦА РЕЙТИНГА (RANKINGS.HTML)
+   ========================================== */
+.ranking-container {
+    max-width: 1000px;
+}
+
+.ranking-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: #0a0a0a; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    margin-bottom: 30px; 
+}
+
+.ranking-table th, 
+.ranking-table td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    font-size: 13px; 
+}
+
+.ranking-table th { 
+    background: rgba(255, 255, 255, 0.02); 
+    color: #d4af37; 
+    font-size: 11px; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+}
+
+.ranking-table td.rank { 
+    font-weight: bold; 
+    color: #d4af37; 
+    width: 60px; 
+}
+
+.ranking-table td.fighter { 
+    font-weight: bold; 
+    text-transform: uppercase; 
+}
+
+.ranking-table td.record { 
+    color: #888; 
+    text-align: right; 
+}
+
+/* ==========================================
+   4. СТРАНИЦА РЕГЛАМЕНТА (RULES.HTML)
+   ========================================== */
+.page-section { 
+    padding: 30px 20px 60px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    min-height: calc(100vh - 140px); 
+}
+
+.section-label { 
+    font-size: 11px; 
+    color: #d4af37; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+    display: block; 
+}
+
+.section-title { 
+    font-size: 26px; 
+    font-weight: 700; 
+    margin-bottom: 25px; 
+    text-transform: uppercase; 
+}
+
+.grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-bottom: 25px; 
+}
+
+.card { 
+    background: #0a0a0a; 
+    padding: 25px 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.03); 
+}
+
+.card h3 { 
+    font-size: 16px; 
+    margin-bottom: 10px; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
+
+.card p { 
+    color: #777; 
+    font-size: 13px; 
+    line-height: 1.5; 
+}
+
+.plan-box { 
+    background: #0a0a0a; 
+    border: 1px solid rgba(212, 175, 55, 0.2); 
+    padding: 20px; 
+}
+
+.plan-box h4 { 
+    color: #d4af37; 
+    font-size: 14px; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+}
+
+.plan-round { 
+    margin-bottom: 15px; 
+}
+
+.plan-round-title { 
+    font-size: 12px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 6px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    padding-bottom: 3px; 
+}
+
+.plan-list { 
+    list-style: none; 
+}
+
+.plan-list li { 
+    font-size: 12px; 
+    color: #888; 
+    margin-bottom: 4px; 
+    position: relative; 
+    padding-left: 12px; 
+}
+
+.plan-list li::before { 
+    content: "—"; 
+    position: absolute; 
+    left: 0; 
+    color: #d4af37; 
+}
+
+/* ==========================================
+   ПОДВАЛ (FOOTER)
+   ========================================== */
+footer { 
+    padding: 25px; 
+    text-align: center; 
+    border-top: 1px solid rgba(255, 255, 255, 0.03); 
+    color: #444; 
+    font-size: 10px; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    background: #050505; 
+}
+
+/* ==========================================
+   АДАПТИВНОСТЬ (MEDIA QUERIES)
+   ========================================== */
+@media (min-width: 768px) {
+    .grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px; 
+    }
+    .section-title { 
+        font-size: 38px; 
+    }
+}
+
+@media (max-width: 768px) {
+    header { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 20px; 
+        text-align: center; 
+    }
+    nav { 
+        width: 100%; 
+        justify-content: center; 
+        overflow-x: auto; 
+        padding-bottom: 5px; 
+    }
+    .hero h1 { 
+        font-size: 32px; 
+    }
+    .container { 
+        padding: 0 15px; 
+        margin: 20px auto; 
+    }
+    .fight-card { 
+        padding: 15px; 
+    }
+    .matchup { 
+        flex-direction: row; 
+        font-size: 13px; 
+    }
+    .fighter-name { 
+        font-size: 13px; 
+    }
+    .main-event .fighter-name { 
+        font-size: 15px; 
+    }
+    .ranking-table th, 
+    .ranking-table td { 
+        padding: 10px; 
+        font-size: 12px; 
+    }
+}

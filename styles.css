@@ -84,6 +84,92 @@ header nav ul li a.active {
     letter-spacing: 1px;
 }
 
+/* Карточки для правил и регламента */
+.rules-card {
+    background: #121212;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.rules-card h2 {
+    font-size: 20px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rules-card p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.rules-card p:last-child {
+    margin-bottom: 0;
+}
+
+.telegram-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.telegram-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Шаблон геймплана */
+.gameplan-box {
+    background: #181818;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.round-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid #d4af37;
+    padding-left: 8px;
+}
+
+.round-title:first-child {
+    margin-top: 0;
+}
+
+.plan-item {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.plan-item::before {
+    content: "•";
+    color: #d4af37;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
 /* Карточки дивизионов и списки */
 .division-header {
     font-size: 20px;
@@ -162,7 +248,7 @@ footer {
     margin-top: 60px;
 }
 
-/* Адаптивность для мобильных телефонов (чтобы шапка не обрезалась) */
+/* Адаптивность для мобильных телефонов */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
